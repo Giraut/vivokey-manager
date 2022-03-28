@@ -1,0 +1,124 @@
+                                Vivokey Manager                               
+                                ---------------
+                                    v0.0.1
+
+
+This is a simple wrapper script around the "ykman" Yubikey Manager command line
+utility from Yubico (https://docs.yubico.com/software/yubikey/tools/ykman/) to
+make it recognize a Vivokey OATH applet and disable the ykman commands that
+aren't relevant to the Vivokey applet.
+
+
+
+Installation
+------------
+
+1/ Install the Yubikey Manager (CLI) utility following Yubico's instructions at
+
+   https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html#linux
+
+   or if you can't be bothered to read them and you run a Debian-based Linux
+   distribution:
+
+     sudo apt-add-repository ppa:yubico/stable
+     sudo apt update
+     sudo apt install yubikey-manager
+
+2/ If the Yubikey Manager isn't installed in /opt/venvs/yubikey-manager, edit
+   the first line of the vkman.py script to point it to the Yubico-supplied
+   Python3 interpreter
+
+
+
+Usage
+-----
+
+  Exactly the same as the Yubikey Manager, apart that only the "info" and "oath"
+  commands are enabled, since the other commands don't make sense with the
+  Vivokey applet.
+
+  Also, the OATH "reset" command is disabled too, as the Vivokey applet won't
+  honor it anyway.
+
+  Finally, because Vivokey devices are NFC-only, a reader name must be
+  explicitely specified and the -r or --reader option becomes compulsory.
+
+
+  * Sample commands
+
+     ./vkman.py -r <reader> info
+
+    Display information about the Vivokey device. Typical output:
+
+    Device type: YubiKey NEO
+    Firmware version: 3.0.0
+    NFC transport is enabled.
+
+    Applications    USB             NFC          
+    FIDO2           Not available   Not available
+    OTP             Not available   Not available
+    FIDO U2F        Not available   Not available
+    OATH            Disabled        Enabled      
+    YubiHSM Auth    Not available   Not available
+    OpenPGP         Not available   Not available
+    PIV             Not available   Not available
+
+    This is only mildly useful with a Vivokey device, as the Yubikey Manager
+    still mostly behaves like the device is a Yubikey and reports an incorrect
+    device types, and lists USB capabilities and applications that simply don't     exist for the device. Still, it's a good command to check that the utility
+    recognizes the Vivokey device.
+
+
+      ./vkman.py -r <reader> oath info
+
+    Status of the OATH application. Typical output:
+
+    OATH version: 0.1.1
+    Password protection: disabled
+
+
+      ./vkman.py -r <reader> oath accounts list
+
+    List all accounts stored in the Vivokey applet. Typical output:
+
+    Discord:xxx@xxx.com
+    GitHub:xxxxx
+    Acme Inc.:xxx@xxx.acme
+    test@localhost
+    Slack:xxx@xxx.com
+
+
+      ./vkman.py -r <reader> oath accounts code
+
+    Generate codes for all the accounts stored in the Vivokey applet.
+    Typical output:
+
+    Discord:xxx@xxx.com       485184
+    GitHub:xxxxx              134155
+    Acme Inc.:xxx@xxx.acme    256250
+    test@localhost            708427
+    Slack:xxx@xxx.com         617292
+
+
+      ./vkman.py -r <reader> oath accounts code GitHub:
+
+    Generate a code for the account matching the given name. Typical output:
+
+    134155
+
+
+      ./vkman.py -h
+      ./vkman.py -r <reader> -h
+      ./vkman.py -r <reader> <info|oath> -h
+      ./vkman.py -r <reader> oath <info|access|accounts> -h
+      ...
+
+    Get help on the various commands, options and suboptions
+
+
+
+           ---------------------------------------------------------
+                   Bug reports? Questions? You can email me.
+                   Run this command to get my email address:
+           C=base64\ -d;$C<<<Y205emEybHpRSEoxYm1KdmVDNWpiMjBLCg==|$C
+           ---------------------------------------------------------

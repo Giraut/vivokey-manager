@@ -1,0 +1,7 @@
+Package: vivokey-manager
+Version:
+Maintainer: Rosco <roskis@runbox.com>
+Description: Wrapper script for the Yubikey Manager (CLI) utility to use it with the Vivokey OATH applet
+Homepage: https://github.com/Giraut/vivokey-manager
+Architecture: all
+Depends: yubikey-manager (>=4.0.7)
