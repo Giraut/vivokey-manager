@@ -26,10 +26,10 @@ Installation
 
 2/ Optionally, you can install this script from a pre-build Debian package:
 
-    - See https://github.com/Giraut/ppa to add the PPA repository to your
-      APT sources
+     - See https://github.com/Giraut/ppa to add the PPA repository to your
+       APT sources
 
-    apt install vivokey-manager
+     sudo apt install vivokey-manager
 
 3/ If the Yubikey Manager isn't installed in /opt/venvs/yubikey-manager, edit
    the first line of the vkman.py script to point it to the Yubico-supplied
