@@ -72,7 +72,8 @@ Usage
 
     This is only mildly useful with a Vivokey device, as the Yubikey Manager
     still mostly behaves like the device is a Yubikey and reports an incorrect
-    device types, and lists USB capabilities and applications that simply don't     exist for the device. Still, it's a good command to check that the utility
+    device types, and lists USB capabilities and applications that simply don't
+    exist for the device. Still, it's a good command to check that the utility
     recognizes the Vivokey device.
 
 
