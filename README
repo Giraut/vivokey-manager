@@ -5,7 +5,7 @@
 
 This is a simple wrapper script around the "ykman" Yubikey Manager command line
 utility from Yubico (https://docs.yubico.com/software/yubikey/tools/ykman/) to
-make it recognize a Vivokey OATH applet and disable the ykman commands that
+make it recognize a Vivokey OTP applet and disable the ykman commands that
 aren't relevant to the Vivokey applet.
 
 
