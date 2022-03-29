@@ -45,13 +45,15 @@ cli.commands = {cmd: cli.commands[cmd] for cmd in ("info", "oath")}
 # Make sure -r / --reader was passed, because apparently NFC won't work without
 # an explicit reader
 if not "-r" in sys.argv and not "--reader" in sys.argv:
-  print('Please pass a reader name with -r or --reader')
-  print()
-  print('A case-insensitive partial match is sufficient, e.g. "utrust" for ')
+  print('Please pass a reader name with -r or --reader', file = sys.stderr)
+  print(file = sys.stderr)
+  print('A case-insensitive partial match is sufficient, e.g. "utrust" for ',
+	file = sys.stderr)
   print('"Identiv uTrust 3700 F CL Reader [uTrust 3700 F CL Reader] '
-	'(55072290205) 00 00"')
-  print()
-  print('Use "pcsc_scan -r" to view the names of connected readers')
+	'(55072290205) 00 00"', file = sys.stderr)
+  print(file = sys.stderr)
+  print('Use "pcsc_scan -r" to view the names of connected readers',
+	file = sys.stderr)
   exit(-1)
 
 # Run the fixed-up yubikey-manager
