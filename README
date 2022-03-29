@@ -1,4 +1,4 @@
-                                Vivokey Manager                               
+                                Vivokey Manager
                                 ---------------
                                     v0.0.2
 
@@ -61,11 +61,11 @@ Usage
     Firmware version: 3.0.0
     NFC transport is enabled.
 
-    Applications    USB             NFC          
+    Applications    USB             NFC
     FIDO2           Not available   Not available
     OTP             Not available   Not available
     FIDO U2F        Not available   Not available
-    OATH            Disabled        Enabled      
+    OATH            Disabled        Enabled
     YubiHSM Auth    Not available   Not available
     OpenPGP         Not available   Not available
     PIV             Not available   Not available
