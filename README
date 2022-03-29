@@ -108,7 +108,7 @@ Usage
     Slack:xxx@xxx.com         617292
 
 
-      ./vkman.py -r <reader> oath accounts code GitHub:
+      ./vkman.py -r <reader> oath accounts code -s GitHub
 
     Generate a code for the account matching the given name. Typical output:
 

@@ -9,7 +9,7 @@ Usage examples:
 ./vkman.py -r 0 info
 ./vkman.py -r ACR122U oath accounts list
 ./vkman.py -r identiv oath accounts code
-./vkman.py -r utrust oath accounts code GitHub:
+./vkman.py -r utrust oath accounts code -s GitHub
 """
 
 ### Modules
