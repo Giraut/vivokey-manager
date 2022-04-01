@@ -1,8 +1,12 @@
 #!/opt/venvs/yubikey-manager/bin/python
 """Wrapper script to use the Yubikey Manager CLI utility with a Vivokey applet
 
-NOTE: Yubico's bundled Python3 interpreter must be used in the hashbang above,
-      as it includes the correct search path to the Yubico modules.
+NOTE: If you installed the Yubikey Manager from the Debian packages, Yubico's
+      bundled Python3 interpreter must be used in the hashbang above, as it
+      includes the correct search path to the Yubico modules.
+
+      If you installed it with pip (e.g. Fedora), replace the first line with:
+      #!/usr/bin/python3
 
 Usage examples:
 

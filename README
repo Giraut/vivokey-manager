@@ -1,6 +1,6 @@
                                 Vivokey Manager
                                 ---------------
-                                    v0.0.2
+                                    v0.0.3
 
 
 This is a simple wrapper script around the "ykman" Yubikey Manager command line
@@ -32,8 +32,8 @@ Installation
      sudo apt install vivokey-manager
 
 3/ If the Yubikey Manager isn't installed in /opt/venvs/yubikey-manager, edit
-   the first line of the vkman.py script to point it to the Yubico-supplied
-   Python3 interpreter
+   the first line of the vkman.py script to point it to the regular Python3
+   interpreter (i.e. /usr/bin/python3)
 
 
 
