@@ -24,16 +24,23 @@ Installation
      sudo apt update
      sudo apt install yubikey-manager
 
-2/ Optionally, you can install this script from a pre-build Debian package:
+2/ If you installed the Yubikey Manager from pip (i.e. not from Yubico's Debian
+   packages) and you don't find it installed in /opt/venvs/yubikey-manager,
+   edit the first line of the vkman.py script to point it to the regular Python3
+   interpreter:
+
+     #!/usr/bin/python3)
+
+3/ Install this script as root:
+
+     install -m 755 vkman.py /usr/bin/vkman
+
+   Optionally, you can install this script from a pre-build Debian package:
 
      - See https://github.com/Giraut/ppa to add the PPA repository to your
        APT sources
 
      sudo apt install vivokey-manager
-
-3/ If the Yubikey Manager isn't installed in /opt/venvs/yubikey-manager, edit
-   the first line of the vkman.py script to point it to the regular Python3
-   interpreter (i.e. /usr/bin/python3)
 
 
 
@@ -53,7 +60,7 @@ Usage
 
   * Sample commands
 
-     ./vkman.py -r <reader> info
+      vkman -r <reader> info
 
     Display information about the Vivokey device. Typical output:
 
@@ -77,7 +84,7 @@ Usage
     recognizes the Vivokey device.
 
 
-      ./vkman.py -r <reader> oath info
+      vkman -r <reader> oath info
 
     Status of the OATH application. Typical output:
 
@@ -85,7 +92,7 @@ Usage
     Password protection: disabled
 
 
-      ./vkman.py -r <reader> oath accounts list
+      vkman -r <reader> oath accounts list
 
     List all accounts stored in the Vivokey applet. Typical output:
 
@@ -96,7 +103,7 @@ Usage
     Slack:xxx@xxx.com
 
 
-      ./vkman.py -r <reader> oath accounts code
+      vkman -r <reader> oath accounts code
 
     Generate codes for all the accounts stored in the Vivokey applet.
     Typical output:
@@ -108,17 +115,17 @@ Usage
     Slack:xxx@xxx.com         617292
 
 
-      ./vkman.py -r <reader> oath accounts code -s GitHub
+      vkman -r <reader> oath accounts code -s GitHub
 
     Generate a code for the account matching the given name. Typical output:
 
     134155
 
 
-      ./vkman.py -h
-      ./vkman.py -r <reader> -h
-      ./vkman.py -r <reader> <info|oath> -h
-      ./vkman.py -r <reader> oath <info|access|accounts> -h
+      vkman -h
+      vkman -r <reader> -h
+      vkman -r <reader> <info|oath> -h
+      vkman -r <reader> oath <info|access|accounts> -h
       ...
 
     Get help on the various commands, options and suboptions
